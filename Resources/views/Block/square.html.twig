@@ -1,0 +1,18 @@
+{% block block %}
+
+{% if block.appearances.type is defined and block.appearances.type is not empty %}{% set hasType = true %}{% endif %}
+{% if block.appearances.view is defined and block.appearances.view is not empty %}{% set hasView = true %}{% endif %}
+{% if haseType is defined or hasView is defined %}{% set hasTypeOrView = true %}{% endif %}
+
+{% if hasTypeOrView is defined %}
+<div class="{% if hasType is defined %}block-square-{{ block.appearances.type|lower }}{% endif %}{% if hasView is defined %} block-square-view-{{ block.appearances.view|lower }}{% endif %}">
+{% endif %}
+
+{% for childBlock in block.children %}
+	{{ sonata_block_render(childBlock) }}
+{% endfor %}
+
+{% if hasTypeOrView is defined %}
+</div>
+{% endif %}
+{% endblock %}

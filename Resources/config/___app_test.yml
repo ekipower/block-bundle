@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@EkiBlockBundle/Resources/config/doctrine_test.yml" }
+    - { resource: "@EkiBlockBundle/Resources/config/doctrine_phpcr_test.yml" }

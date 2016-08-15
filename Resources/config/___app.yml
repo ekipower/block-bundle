@@ -1,0 +1,8 @@
+imports:
+    - { resource: "@EkiBlockBundle/Resources/config/cmf_core.yml" }
+    - { resource: "@EkiBlockBundle/Resources/config/cmf_block.yml" }
+    - { resource: "@EkiBlockBundle/Resources/config/cmf_menu.yml" }
+    - { resource: "@EkiBlockBundle/Resources/config/cmf_media.yml" }
+#    - { resource: "@EkiBlockBundle/Resources/config/cmf_routing.yml" }
+#    - { resource: "@EkiBlockBundle/Resources/config/doctrine_cache.yml" }
+    - { resource: "@EkiBlockBundle/Resources/config/sonata_block.yml" }

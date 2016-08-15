@@ -1,0 +1,10 @@
+{% block block %}
+<div class="{{ block.settings.class|default('container-fluid') }}">
+	{% if block.title %}
+		<h1>{{ block.title }}</h1>
+	{% endif %}
+	{% for childBlock in block.children %}
+		{{ sonata_block_render(childBlock) }}
+	{% endfor %}
+</div>
+{% endblock %}

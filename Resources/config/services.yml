@@ -1,0 +1,99 @@
+parameters:
+    eki.block.service.pad.class: Eki\Block\BlockBundle\Block\ContainerBlockService
+    eki.block.service.zone.class: Eki\Block\BlockBundle\Block\ContainerBlockService
+    eki.block.service.square.class: Eki\Block\BlockBundle\Block\ContainerBlockService
+    eki.block.service.item.class: Eki\Block\BlockBundle\Block\ItemBlockService
+
+    eki_block.delegate.template_matcher.class: Eki\Block\BlockBundle\Matcher\DelegateTemplateMatcher
+    eki_block.template_matcher.pad.class: Eki\Block\BlockBundle\Matcher\PadBlockTemplateMatcher
+    eki_block.template_matcher.zone.class: Eki\Block\BlockBundle\Matcher\ZoneBlockTemplateMatcher
+    eki_block.template_matcher.square.class: Eki\Block\BlockBundle\Matcher\SquareBlockTemplateMatcher
+    eki_block.template_matcher.item.class: Eki\Block\BlockBundle\Matcher\ItemBlockTemplateMatcher
+    eki_block.template_matcher.action.form.class: Eki\Block\BlockBundle\Matcher\FormBlockTemplateMatcher
+
+    eki.block.controller.form_block.class: Eki\Block\BlockBundle\Controller\FormBlockController
+    
+services:
+    eki.block.pad:
+        class: %eki.block.service.pad.class%
+        arguments:
+            - "eki.block.pad"
+            - "@templating"
+            - "@sonata.block.renderer"
+            - EkiBlockBundle:Block:pad.html.twig
+        tags:
+            - { name: "sonata.block" }
+
+    eki.block.zone:
+        class: %eki.block.service.zone.class%
+        arguments:
+            - "eki.block.zone"
+            - "@templating"
+            - "@sonata.block.renderer"
+            - EkiBlockBundle:Block:zone.html.twig
+        tags:
+            - { name: "sonata.block" }
+
+    eki.block.square:
+        class: %eki.block.service.square.class%
+        arguments:
+            - "eki.block.square"
+            - "@templating"
+            - "@sonata.block.renderer"
+            - EkiBlockBundle:Block:square.html.twig
+        tags:
+            - { name: "sonata.block" }
+            
+    eki.block.item:
+        class: %eki.block.service.item.class%
+        arguments:
+            - "eki.block.item"
+            - "@templating"
+            - EkiBlockBundle:Block:item.html.twig
+        tags:
+            - { name: "sonata.block" }
+
+    eki_block.delegate.template_matcher:
+        class: %eki_block.delegate.template_matcher.class%
+        
+    eki_block.template_matcher.pad:
+        class: %eki_block.template_matcher.pad.class%
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: eki_block.template_matcher, key: eki.block.pad }
+            
+    eki_block.template_matcher.zone:
+        class: %eki_block.template_matcher.zone.class%
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: eki_block.template_matcher, key: eki.block.zone }
+            
+    eki_block.template_matcher.square:
+        class: %eki_block.template_matcher.square.class%
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: eki_block.template_matcher, key: eki.block.square }
+            
+    eki_block.template_matcher.item:
+        class: %eki_block.template_matcher.item.class%
+        calls:
+            - [setContainer, ['@service_container']]            
+        tags:
+            - { name: eki_block.template_matcher, key: eki.block.item }
+
+    eki_block.template_matcher.action.form:
+        class: %eki_block.template_matcher.action.form.class%
+        calls:
+            - [setContainer, ['@service_container']]            
+        tags:
+            - { name: eki_block.template_matcher, key: eki.block.action.form }
+            
+    eki.block.controller.form_block:
+        class: %eki.block.controller.form_block.class%
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setDispatcher, ['@event_dispatcher']]
+            - [setTemplateMatcher, ['@eki_block.delegate.template_matcher']]

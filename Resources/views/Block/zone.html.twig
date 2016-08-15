@@ -1,0 +1,5 @@
+{% block block %}
+    {% for childBlock in block.children %}
+        {{ sonata_block_render(childBlock) }}
+    {% endfor %}
+{% endblock %}

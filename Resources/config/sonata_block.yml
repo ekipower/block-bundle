@@ -1,0 +1,14 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks_by_class:
+        -
+            class: Eki\Block\BlockBundle\Document\ItemBlock
+            settings:
+                source_type: ~
+                source_name: ~
+                block_item_view: ~
+        - 
+            class: Eki\Block\BlockBundle\Document\FormBlock
+            settings:
+                form_type: ~
+                view_type: ~

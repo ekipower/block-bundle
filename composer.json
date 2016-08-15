@@ -1,0 +1,24 @@
+{
+    "name": "ekipower/block-bundle",
+	"type": "bundle",
+    "description": "Ekipower Block bundle",
+    "keywords": ["symfony", "ekipower", "block", "bundle"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nguyen Tien Hy",
+            "email": "ngtienhy@gmail.com"
+        },
+    ],
+    "require": {
+		"symfony-cmf/block-bundle": "dev-master",
+    },
+    "autoload": {
+        "psr-4": {"Eki\\Block\\BlockBundle\\": ""}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+}

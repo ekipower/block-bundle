@@ -1,0 +1,10 @@
+{% block block %}
+ 
+	<div>
+	<h3>{{ block.name }}<h3>
+	{% for propName, propVal in block.props %}
+		{{ propName }}={{ propVal }}<br>
+	{% endfor %}
+	</div>
+ 
+{% endblock %}

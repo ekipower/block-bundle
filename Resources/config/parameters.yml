@@ -1,0 +1,3 @@
+parameters:
+    eki_block.object_manager.test.name: eki_block_test
+

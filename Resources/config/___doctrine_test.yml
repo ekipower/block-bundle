@@ -1,0 +1,10 @@
+doctrine:
+    dbal:
+        connections:
+            eki_block_test_connection:
+                driver: pdo_mysql
+                host: localhost
+                user: ezpublish
+                password: U6JXN5KfCwjJyoweSlSm
+                dbname: ekiblock_test
+                charset: UTF8

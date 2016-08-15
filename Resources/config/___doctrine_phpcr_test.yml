@@ -1,0 +1,28 @@
+doctrine_phpcr:
+    session:
+        sessions:
+            eki_block_test:
+                backend:
+                    logging: true
+                    profiling: true
+                    type: doctrinedbal
+                    connection: eki_block_test_connection
+                    caches:
+                        meta:  doctrine_cache.providers.phpcr_meta
+                        nodes: doctrine_cache.providers.phpcr_nodes
+                    parameters:
+                        jackalope.disable_transactions: false
+                        jackalope.check_login_on_server: false
+                workspace: eki_block_test
+                username: admin
+                password: admin
+                options: ~
+    odm:
+        document_managers:
+            eki_block_test:
+                session: eki_block_test
+                mappings:
+                    CmfBlockBundle: ~
+                    CmfMenuBundle: ~
+                    EkiBlockBundle: ~
+                    EkiEzBlockBundle: ~
